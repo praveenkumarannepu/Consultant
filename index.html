@@ -1,120 +1,1693 @@
-<!-- Portfolio -->
-<section id="portfolio">
-    <div class="container">
+# Praveen Kumar Annepu — Personal Portfolio Website
 
-        <div class="section-heading">
-            <div class="section-label">Portfolio</div>
-            <h2>Selected Areas of Work</h2>
-            <p>
-                Practical portfolio projects demonstrating campaign
-                analysis, tracking, reporting and operational thinking.
-            </p>
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Praveen Kumar Annepu - Digital Marketing, Ad Operations, Campaign Management, Analytics and Customer Success Professional">
+    <meta name="author" content="Praveen Kumar Annepu">
+
+    <title>Praveen Kumar Annepu | Digital Marketing & Ad Operations</title>
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --dark: #0f172a;
+            --text: #334155;
+            --muted: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --success: #059669;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, -apple-system, BlinkMacSystemFont,
+                "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1120px, 92%);
+            margin: auto;
+        }
+
+        /* Navigation */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--muted);
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero */
+
+        .hero {
+            background:
+                radial-gradient(
+                    circle at top right,
+                    rgba(37, 99, 235, 0.12),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #f8fafc 0%,
+                    #eef4ff 100%
+                );
+
+            padding: 105px 0 90px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            background: #dbeafe;
+            color: var(--primary-dark);
+            padding: 7px 14px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.05;
+            color: var(--dark);
+            margin-bottom: 22px;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text);
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .hero-description {
+            color: var(--muted);
+            max-width: 680px;
+            font-size: 1.02rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 21px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.92rem;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            background: white;
+            color: var(--dark);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .hero-card {
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        }
+
+        .hero-card h3 {
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .quick-stat {
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quick-stat:last-child {
+            border-bottom: none;
+        }
+
+        .quick-stat strong {
+            display: block;
+            color: var(--dark);
+            font-size: 1.15rem;
+        }
+
+        .quick-stat span {
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        /* General Sections */
+
+        section {
+            padding: 90px 0;
+        }
+
+        section:nth-child(even) {
+            background: var(--light);
+        }
+
+        .section-heading {
+            max-width: 720px;
+            margin-bottom: 45px;
+        }
+
+        .section-label {
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.78rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            line-height: 1.15;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        /* About */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 55px;
+            align-items: start;
+        }
+
+        .about-text p {
+            margin-bottom: 17px;
+        }
+
+        .focus-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .focus-item {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 15px 18px;
+            font-weight: 650;
+            color: var(--dark);
+        }
+
+        /* Skills */
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 25px;
+            transition: 0.25s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+        }
+
+        .skill-icon {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 10px;
+            background: #dbeafe;
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+        }
+
+        .skill-card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* Tools */
+
+        .tool-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 11px;
+        }
+
+        .tool {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 650;
+            color: var(--dark);
+            transition: 0.2s;
+        }
+
+        .tool:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Experience */
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 12px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 48px;
+            margin-bottom: 42px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 4px;
+            top: 5px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 4px solid #dbeafe;
+        }
+
+        .timeline-content {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 25px;
+        }
+
+        .timeline-date {
+            color: var(--primary);
+            font-size: 0.82rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .timeline-content h3 {
+            color: var(--dark);
+            font-size: 1.25rem;
+        }
+
+        .timeline-company {
+            color: var(--muted);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .timeline-content ul {
+            padding-left: 20px;
+            color: var(--text);
+        }
+
+        .timeline-content li {
+            margin-bottom: 7px;
+        }
+
+        /* Certifications */
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .cert-card {
+            padding: 22px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .cert-card span {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--success);
+            margin-top: 8px;
+        }
+
+        /* Awards */
+
+        .awards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .award {
+            padding: 25px;
+            border-radius: 14px;
+            background: white;
+            border: 1px solid var(--border);
+        }
+
+        .award h3 {
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .award p {
+            color: var(--muted);
+        }
+
+        /* Portfolio */
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .portfolio-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 26px;
+            display: flex;
+            flex-direction: column;
+            transition: 0.25s;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+        }
+
+        .portfolio-card h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .portfolio-card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            flex-grow: 1;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 18px;
+        }
+
+        .portfolio-tag {
+            background: #eff6ff;
+            color: var(--primary-dark);
+            border-radius: 5px;
+            padding: 5px 8px;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        /* Education */
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .education-card {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 28px;
+            border-radius: 14px;
+        }
+
+        .education-card h3 {
+            color: var(--dark);
+            margin-bottom: 7px;
+        }
+
+        .education-card p {
+            color: var(--muted);
+        }
+
+        /* Contact */
+
+        .contact {
+            background: var(--dark) !important;
+            color: white;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact .section-heading p {
+            color: #cbd5e1;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 35px;
+        }
+
+        .contact-card {
+            padding: 20px;
+            border: 1px solid #334155;
+            border-radius: 10px;
+            background: #111c32;
+        }
+
+        .contact-card small {
+            display: block;
+            color: #94a3b8;
+            margin-bottom: 4px;
+        }
+
+        .contact-card a {
+            color: white;
+            font-weight: 650;
+        }
+
+        .contact-card a:hover {
+            color: #93c5fd;
+        }
+
+        /* Footer */
+
+        footer {
+            background: #020617;
+            color: #94a3b8;
+            padding: 25px 0;
+            text-align: center;
+            font-size: 0.82rem;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 900px) {
+
+            .hero-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-grid,
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cert-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .awards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 75px 0;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            .skill-grid,
+            .portfolio-grid,
+            .education-grid,
+            .contact-grid,
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                letter-spacing: -1px;
+            }
+
+            .hero-card {
+                padding: 22px;
+            }
+
+            .timeline-item {
+                padding-left: 38px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-inner">
+
+            <a href="#home" class="logo">
+                Praveen<span>.</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero" id="home">
+
+        <div class="container hero-grid">
+
+            <div>
+
+                <span class="eyebrow">
+                    DIGITAL MARKETING • AD OPERATIONS • ANALYTICS
+                </span>
+
+                <h1>
+                    Praveen Kumar<br>
+                    <span>Annepu</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Digital Marketing & Ad Operations Consultant
+                </p>
+
+                <p class="hero-description">
+                    Digital marketing professional with 7+ years of experience
+                    across campaign management, ad operations, search and
+                    programmatic advertising, analytics, tag management,
+                    performance optimization and stakeholder management.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="mailto:kumarpraveen719@gmail.com"
+                       class="btn btn-primary">
+                        Contact Me
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/praveen-kumar-annepu/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn-outline">
+                        LinkedIn
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="hero-card">
+
+                <h3>Professional Snapshot</h3>
+
+                <div class="quick-stat">
+                    <strong>7+ Years</strong>
+                    <span>Digital Marketing & Operations Experience</span>
+                </div>
+
+                <div class="quick-stat">
+                    <strong>Google Marketing Platform</strong>
+                    <span>SA360 • CM360 • DV360 • Google Ads</span>
+                </div>
+
+                <div class="quick-stat">
+                    <strong>Analytics & Tracking</strong>
+                    <span>GA4 • Adobe Analytics • GTM • Adobe Launch • Tealium</span>
+                </div>
+
+                <div class="quick-stat">
+                    <strong>Campaign Operations</strong>
+                    <span>Trafficking • QA • Tracking • Reporting • Optimization</span>
+                </div>
+
+                <div class="quick-stat">
+                    <strong>Client & Stakeholder Focus</strong>
+                    <span>Reporting • Troubleshooting • Requirements • Delivery</span>
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="portfolio-grid">
+    </header>
 
-            <div class="portfolio-card">
-                <h3>Google Ads Campaign Analysis</h3>
+    <!-- About -->
+    <section id="about">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    About Me
+                </div>
+
+                <h2>
+                    Connecting advertising, data and operations.
+                </h2>
 
                 <p>
-                    Campaign performance analysis covering spend, impressions,
-                    clicks, CTR, CPC, conversions, CPA, ROAS and optimization
-                    opportunities.
+                    I combine digital advertising knowledge with campaign
+                    operations, analytics, tracking and stakeholder management.
                 </p>
 
-                <div class="portfolio-tags">
-                    <span class="portfolio-tag">Google Ads</span>
-                    <span class="portfolio-tag">Performance</span>
-                    <span class="portfolio-tag">Analytics</span>
-                </div>
             </div>
 
+            <div class="about-grid">
 
-            <div class="portfolio-card">
-                <h3>Programmatic Campaign Analysis</h3>
+                <div class="about-text">
 
-                <p>
-                    A portfolio framework for analyzing programmatic campaigns
-                    across impressions, clicks, spend, CPM, conversions,
-                    viewability, audiences and creatives.
-                </p>
+                    <p>
+                        I am a results-driven Digital Marketing and Ad Operations
+                        professional with 7+ years of experience supporting
+                        enterprise digital marketing initiatives.
+                    </p>
 
-                <div class="portfolio-tags">
-                    <span class="portfolio-tag">DV360</span>
-                    <span class="portfolio-tag">Programmatic</span>
-                    <span class="portfolio-tag">Display</span>
+                    <p>
+                        My experience spans Search Ads 360, Campaign Manager 360,
+                        Display & Video 360, Google Ads, GA4, Google Tag Manager,
+                        Adobe Analytics, Adobe Launch and Tealium.
+                    </p>
+
+                    <p>
+                        I have worked across campaign setup and trafficking,
+                        tracking implementation, campaign QA, reporting,
+                        troubleshooting and performance optimization.
+                    </p>
+
+                    <p>
+                        I also bring experience in client and stakeholder
+                        management, making me comfortable working at the
+                        intersection of technology, marketing operations and
+                        business requirements.
+                    </p>
+
                 </div>
-            </div>
 
+                <div class="focus-list">
 
-            <div class="portfolio-card">
-                <h3>GTM + GA4 Tracking Framework</h3>
+                    <div class="focus-item">
+                        📢 Digital Advertising
+                    </div>
 
-                <p>
-                    Measurement framework covering events, tags, triggers,
-                    variables, data layer concepts, conversion tracking and
-                    tracking QA.
-                </p>
+                    <div class="focus-item">
+                        🎯 Ad & Campaign Operations
+                    </div>
 
-                <div class="portfolio-tags">
-                    <span class="portfolio-tag">GTM</span>
-                    <span class="portfolio-tag">GA4</span>
-                    <span class="portfolio-tag">Tracking</span>
+                    <div class="focus-item">
+                        🔎 Search & Programmatic
+                    </div>
+
+                    <div class="focus-item">
+                        📊 Analytics & Reporting
+                    </div>
+
+                    <div class="focus-item">
+                        🏷️ Tag Management & Tracking
+                    </div>
+
+                    <div class="focus-item">
+                        🤝 Customer & Stakeholder Success
+                    </div>
+
+                    <div class="focus-item">
+                        👥 Operations & Team Leadership
+                    </div>
+
                 </div>
-            </div>
 
-
-            <div class="portfolio-card">
-                <h3>Campaign QA Framework</h3>
-
-                <p>
-                    A structured QA framework covering campaign setup,
-                    targeting, budgets, creatives, URLs, tracking,
-                    conversions and launch validation.
-                </p>
-
-                <div class="portfolio-tags">
-                    <span class="portfolio-tag">Ad Operations</span>
-                    <span class="portfolio-tag">QA</span>
-                    <span class="portfolio-tag">Campaigns</span>
-                </div>
-            </div>
-
-
-            <div class="portfolio-card">
-                <h3>Digital Analytics Framework</h3>
-
-                <p>
-                    A measurement and reporting framework connecting business
-                    requirements, campaign data, analytics, KPIs and
-                    optimization.
-                </p>
-
-                <div class="portfolio-tags">
-                    <span class="portfolio-tag">Analytics</span>
-                    <span class="portfolio-tag">GA4</span>
-                    <span class="portfolio-tag">Adobe</span>
-                </div>
-            </div>
-
-
-            <div class="portfolio-card">
-                <h3>Customer Success Operations</h3>
-
-                <p>
-                    A portfolio framework demonstrating customer operations,
-                    SLA management, issue resolution, reporting and
-                    stakeholder communication.
-                </p>
-
-                <div class="portfolio-tags">
-                    <span class="portfolio-tag">Customer Success</span>
-                    <span class="portfolio-tag">Operations</span>
-                    <span class="portfolio-tag">SLA</span>
-                </div>
             </div>
 
         </div>
 
-    </div>
-</section>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Core Expertise
+                </div>
+
+                <h2>
+                    What I bring to a team.
+                </h2>
+
+                <p>
+                    A combination of advertising technology, operational execution,
+                    analytics and customer-focused problem solving.
+                </p>
+
+            </div>
+
+            <div class="skill-grid">
+
+                <div class="skill-card">
+                    <div class="skill-icon">01</div>
+                    <h3>Ad Operations</h3>
+                    <p>
+                        Campaign setup, trafficking, QA, pacing, tracking,
+                        troubleshooting and reporting.
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">02</div>
+                    <h3>Search Advertising</h3>
+                    <p>
+                        Google Ads and SA360 campaign management, performance
+                        analysis, optimization and KPI reporting.
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">03</div>
+                    <h3>Programmatic & Display</h3>
+                    <p>
+                        DV360 and CM360 campaign operations, display advertising,
+                        rich media and video campaigns.
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">04</div>
+                    <h3>Analytics</h3>
+                    <p>
+                        GA4, Adobe Analytics, campaign measurement, reporting,
+                        conversion analysis and data validation.
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">05</div>
+                    <h3>Tag Management</h3>
+                    <p>
+                        GTM, Adobe Launch and Tealium implementation, validation,
+                        events, pixels and conversion tracking.
+                    </p>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">06</div>
+                    <h3>Client & Operations</h3>
+                    <p>
+                        Stakeholder management, requirements, troubleshooting,
+                        reporting, process coordination and operational delivery.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Platforms -->
+    <section>
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Technology Stack
+                </div>
+
+                <h2>
+                    Platforms & Tools
+                </h2>
+
+            </div>
+
+            <div class="tool-cloud">
+
+                <span class="tool">Google Ads</span>
+                <span class="tool">Search Ads 360</span>
+                <span class="tool">Campaign Manager 360</span>
+                <span class="tool">Display & Video 360</span>
+                <span class="tool">Google Ad Manager</span>
+                <span class="tool">Meta Ads</span>
+                <span class="tool">Twitter / X Ads</span>
+                <span class="tool">Google Analytics 4</span>
+                <span class="tool">Adobe Analytics</span>
+                <span class="tool">Google Tag Manager</span>
+                <span class="tool">Adobe Launch</span>
+                <span class="tool">Tealium</span>
+                <span class="tool">Floodlight</span>
+                <span class="tool">Looker Studio</span>
+                <span class="tool">Jira</span>
+                <span class="tool">Celtra</span>
+                <span class="tool">Genesis</span>
+                <span class="tool">Verve</span>
+                <span class="tool">Salesforce</span>
+                <span class="tool">Merchant Center</span>
+                <span class="tool">HTML5 / Rich Media</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Career
+                </div>
+
+                <h2>
+                    Professional Experience
+                </h2>
+
+                <p>
+                    Experience across digital advertising, campaign operations,
+                    analytics, tracking and business operations.
+                </p>
+
+            </div>
+
+            <div class="timeline">
+
+                <!-- Deloitte -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <div class="timeline-date">
+                            SEP 2021 — JUN 2023
+                        </div>
+
+                        <h3>
+                            Consultant — Digital Marketing
+                        </h3>
+
+                        <div class="timeline-company">
+                            Deloitte Consulting India Pvt. Ltd.
+                        </div>
+
+                        <ul>
+
+                            <li>
+                                Managed campaign setup and trafficking across
+                                Google Ads, Meta, Twitter, Pinterest, CM360 and
+                                DV360.
+                            </li>
+
+                            <li>
+                                Implemented and supported GTM, GA360/GA4,
+                                Adobe Analytics and Tealium solutions.
+                            </li>
+
+                            <li>
+                                Validated Floodlight tags, pixels, events and
+                                tracking implementations.
+                            </li>
+
+                            <li>
+                                Created reporting dashboards and supported
+                                campaign performance optimization.
+                            </li>
+
+                            <li>
+                                Worked across enterprise digital marketing,
+                                analytics and campaign management projects.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <!-- MediaMint -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <div class="timeline-date">
+                            SEP 2019 — SEP 2021
+                        </div>
+
+                        <h3>
+                            Campaign Manager Associate II
+                        </h3>
+
+                        <div class="timeline-company">
+                            MediaMint
+                        </div>
+
+                        <ul>
+
+                            <li>
+                                Managed digital advertising campaigns with
+                                budgets up to $50,000.
+                            </li>
+
+                            <li>
+                                Executed HTML5, Rich Media and Video campaigns.
+                            </li>
+
+                            <li>
+                                Worked with CM360, Jira, Celtra, Genesis and
+                                Salesforce.
+                            </li>
+
+                            <li>
+                                Implemented IAS, DoubleVerify and Floodlight
+                                tracking.
+                            </li>
+
+                            <li>
+                                Supported campaign operations, delivery and
+                                client requirements.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <!-- Accenture -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <div class="timeline-date">
+                            AUG 2017 — AUG 2019
+                        </div>
+
+                        <h3>
+                            Business Operations Associate
+                        </h3>
+
+                        <div class="timeline-company">
+                            Accenture
+                        </div>
+
+                        <ul>
+
+                            <li>
+                                Supported Search Ads 360 advertisers across
+                                global markets.
+                            </li>
+
+                            <li>
+                                Performed troubleshooting, optimization and
+                                KPI reporting.
+                            </li>
+
+                            <li>
+                                Worked with Google Ads, CM360, Merchant Center
+                                and Google Analytics.
+                            </li>
+
+                            <li>
+                                Supported campaign and operational requirements
+                                for global advertisers.
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <!-- ITC -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <div class="timeline-date">
+                            2016 — 2017
+                        </div>
+
+                        <h3>
+                            Analyst
+                        </h3>
+
+                        <div class="timeline-company">
+                            ITC Infotech
+                        </div>
+
+                        <p>
+                            Earlier professional experience supporting business
+                            and technology operations.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- Knoah -->
+
+                <div class="timeline-item">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <div class="timeline-date">
+                            2015 — 2016
+                        </div>
+
+                        <h3>
+                            Technical Support Executive
+                        </h3>
+
+                        <div class="timeline-company">
+                            Knoah Solutions
+                        </div>
+
+                        <p>
+                            Customer and technical support experience that
+                            established an early foundation in customer service,
+                            issue resolution and operational support.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Portfolio
+                </div>
+
+                <h2>
+                    Selected Areas of Work
+                </h2>
+
+                <p>
+                    Practical portfolio projects can demonstrate campaign
+                    analysis, tracking, reporting and operational thinking.
+                </p>
+
+            </div>
+
+            <div class="portfolio-grid">
+
+                <!-- Portfolio 1 -->
+
+                <div class="portfolio-card">
+
+                    <h3>
+                        Google Ads Campaign Analysis
+                    </h3>
+
+                    <p>
+                        Campaign performance analysis covering spend, impressions,
+                        clicks, CTR, CPC, conversions, CPA, ROAS and optimization
+                        opportunities.
+                    </p>
+
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Google Ads</span>
+                        <span class="portfolio-tag">Performance</span>
+                        <span class="portfolio-tag">Analytics</span>
+                    </div>
+
+                </div>
+
+                <!-- Portfolio 2 -->
+
+                <div class="portfolio-card">
+
+                    <h3>
+                        Programmatic Campaign Analysis
+                    </h3>
+
+                    <p>
+                        A portfolio framework for analyzing programmatic campaigns
+                        across impressions, clicks, spend, CPM, conversions,
+                        viewability, audiences and creatives.
+                    </p>
+
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">DV360</span>
+                        <span class="portfolio-tag">Programmatic</span>
+                        <span class="portfolio-tag">Display</span>
+                    </div>
+
+                </div>
+
+                <!-- Portfolio 3 -->
+
+                <div class="portfolio-card">
+
+                    <h3>
+                        GTM + GA4 Tracking Framework
+                    </h3>
+
+                    <p>
+                        Measurement framework covering events, tags, triggers,
+                        variables, data layer concepts, conversion tracking and
+                        tracking QA.
+                    </p>
+
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">GTM</span>
+                        <span class="portfolio-tag">GA4</span>
+                        <span class="portfolio-tag">Tracking</span>
+                    </div>
+
+                </div>
+
+                <!-- Portfolio 4 -->
+
+                <div class="portfolio-card">
+
+                    <h3>
+                        Campaign QA Framework
+                    </h3>
+
+                    <p>
+                        A structured QA framework covering campaign setup,
+                        targeting, budgets, creatives, URLs, tracking,
+                        conversions and launch validation.
+                    </p>
+
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Ad Operations</span>
+                        <span class="portfolio-tag">QA</span>
+                        <span class="portfolio-tag">Campaigns</span>
+                    </div>
+
+                </div>
+
+                <!-- Portfolio 5 -->
+
+                <div class="portfolio-card">
+
+                    <h3>
+                        Digital Analytics Framework
+                    </h3>
+
+                    <p>
+                        A measurement and reporting framework connecting business
+                        requirements, campaign data, analytics, KPIs and
+                        optimization.
+                    </p>
+
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Analytics</span>
+                        <span class="portfolio-tag">GA4</span>
+                        <span class="portfolio-tag">Adobe</span>
+                    </div>
+
+                </div>
+
+                <!-- Portfolio 6 -->
+
+                <div class="portfolio-card">
+
+                    <h3>
+                        Customer Success Operations
+                    </h3>
+
+                    <p>
+                        A portfolio framework demonstrating customer operations,
+                        SLA management, issue resolution, reporting and
+                        stakeholder communication.
+                    </p>
+
+                    <div class="portfolio-tags">
+                        <span class="portfolio-tag">Customer Success</span>
+                        <span class="portfolio-tag">Operations</span>
+                        <span class="portfolio-tag">SLA</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Certifications -->
+    <section>
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Credentials
+                </div>
+
+                <h2>
+                    Certifications
+                </h2>
+
+            </div>
+
+            <div class="cert-grid">
+
+                <div class="cert-card">
+                    Search Ads 360
+                    <span>Certified</span>
+                </div>
+
+                <div class="cert-card">
+                    Campaign Manager 360
+                    <span>Certified</span>
+                </div>
+
+                <div class="cert-card">
+                    Google Ads
+                    <span>Certified</span>
+                </div>
+
+                <div class="cert-card">
+                    Google Analytics 4
+                    <span>Certified</span>
+                </div>
+
+                <div class="cert-card">
+                    Google Tag Manager
+                    <span>Training / Credential</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Awards -->
+    <section>
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Recognition
+                </div>
+
+                <h2>
+                    Awards & Recognition
+                </h2>
+
+            </div>
+
+            <div class="awards">
+
+                <div class="award">
+                    <h3>
+                        Best Employee of the Year
+                    </h3>
+                    <p>
+                        Accenture
+                    </p>
+                </div>
+
+                <div class="award">
+                    <h3>
+                        Bravo Award
+                    </h3>
+                    <p>
+                        Knoah Solutions
+                    </p>
+                </div>
+
+                <div class="award">
+                    <h3>
+                        Spot & Client Appreciation Awards
+                    </h3>
+                    <p>
+                        Multiple recognitions at MediaMint
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Education
+                </div>
+
+                <h2>
+                    Academic Background
+                </h2>
+
+            </div>
+
+            <div class="education-grid">
+
+                <div class="education-card">
+
+                    <h3>
+                        MBA / PGDM
+                    </h3>
+
+                    <p>
+                        Finance & Marketing
+                    </p>
+
+                    <p>
+                        Osmania University, Hyderabad
+                    </p>
+
+                </div>
+
+                <div class="education-card">
+
+                    <h3>
+                        B.Tech / B.E.
+                    </h3>
+
+                    <p>
+                        Electronics & Communication Engineering
+                    </p>
+
+                    <p>
+                        Jawaharlal Nehru Technological University (JNTU)
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Career Interests -->
+    <section>
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Career Focus
+                </div>
+
+                <h2>
+                    Roles I'm Interested In
+                </h2>
+
+                <p>
+                    Open to opportunities where digital advertising, analytics,
+                    operations and customer-focused problem solving intersect.
+                </p>
+
+            </div>
+
+            <div class="tool-cloud">
+
+                <span class="tool">Digital Marketing</span>
+                <span class="tool">Ad Operations</span>
+                <span class="tool">Campaign Operations</span>
+                <span class="tool">Campaign Manager</span>
+                <span class="tool">Google Ads</span>
+                <span class="tool">Search Ads Operations</span>
+                <span class="tool">Display Operations</span>
+                <span class="tool">Programmatic Advertising</span>
+                <span class="tool">DV360</span>
+                <span class="tool">Digital Analytics</span>
+                <span class="tool">Tag Management</span>
+                <span class="tool">Marketing Operations</span>
+                <span class="tool">Customer Success</span>
+                <span class="tool">Customer Engagement</span>
+                <span class="tool">Client Services</span>
+                <span class="tool">Operations Manager</span>
+                <span class="tool">Team Lead</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    Get In Touch
+                </div>
+
+                <h2>
+                    Let's connect.
+                </h2>
+
+                <p>
+                    I'm open to professional opportunities and conversations
+                    around digital marketing, advertising operations, analytics,
+                    customer success and operations leadership.
+                </p>
+
+            </div>
+
+            <div class="contact-grid">
+
+                <div class="contact-card">
+
+                    <small>
+                        Email
+                    </small>
+
+                    <a href="mailto:kumarpraveen719@gmail.com">
+                        kumarpraveen719@gmail.com
+                    </a>
+
+                </div>
+
+                <div class="contact-card">
+
+                    <small>
+                        LinkedIn
+                    </small>
+
+                    <a href="https://www.linkedin.com/in/praveen-kumar-annepu/"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        linkedin.com/in/praveen-kumar-annepu
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="hero-buttons">
+
+                <a href="mailto:kumarpraveen719@gmail.com"
+                   class="btn btn-primary">
+                    Email Me
+                </a>
+
+                <a href="https://www.linkedin.com/in/praveen-kumar-annepu/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn btn-outline"
+                   style="color: white; border-color: #475569;">
+                    Connect on LinkedIn
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="container">
+            © 2026 Praveen Kumar Annepu · Digital Marketing & Ad Operations
+        </div>
+
+    </footer>
+
+</body>
+</html>
+```
